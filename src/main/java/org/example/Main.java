@@ -15,14 +15,14 @@ public class Main {
     public static int wordsCount() {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите строку: ");
-        String string = in.nextLine().replaceAll("  +", " ");
+        String string = in.nextLine().replaceAll("  +", " ").trim();
         return string.split(" ").length;
     }
 
     public static String inputName() {
         System.out.print("Введите имя и фамилию на кириллице через пробел. Имя и фамилия должны начинаться с большой буквы: ");
         Scanner in = new Scanner(System.in);
-        Pattern regex = Pattern.compile("([А-ЯЁ][а-яё]+) ([А-ЯЁ][а-я]+)");
+        Pattern regex = Pattern.compile("^([А-ЯЁ][а-яё]+) ([А-ЯЁ][а-я]+)$");
         while (true) {
             String value = in.nextLine();
             if (regex.matcher(value).find()) {
@@ -41,6 +41,6 @@ public class Main {
         String[] words = {"Java", "это", "очень", "интересно", "и", "увлекательно", ":)"};
         Random random = new Random();
         int randomNumber = random.nextInt(words.length);
-        System.out.println(words[randomNumber]);
+        System.out.println("рандомное слово: " + words[randomNumber]);
     }
 }
